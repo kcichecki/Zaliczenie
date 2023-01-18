@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BazaSprzetu.Models.SprzetModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Add"><button>Dodaj Sprzet</button></a>
+</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rodzaj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
+            <th>
+                <a>Akcja</a>
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rodzaj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                | <a asp-action="Edit" asp-route-id="@item.ID">Edytuj</a> |
+                <a asp-action="Remove" asp-route-id="@item.ID">Usun</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

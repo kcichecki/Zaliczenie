@@ -1,0 +1,63 @@
+﻿@model BazaSprzetu.Models.SprzetModel
+
+@{
+    ViewData["Title"] = "Remove";
+}
+
+<h1>Remove</h1>
+
+<p>Czy na pewno chcesz usunąć film o nazwie @Model.Model?</p>
+
+<div>
+    <form asp-action="RemoveConfirm">
+        <input hidden value="@Model.ID" class="form-control" />
+        <button class="btn btn-danger">Potwierdź usuniecie</button>
+
+    </form>
+    <a asp-action="Index" class="btn btn-secondary">Powrót na stronę główną</a>
+</div>
+
+
+
+
+
+
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <h4>Dane sprzetu</h4>
+
+        <form asp-action="Remove">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Rodzaj" class="control-label"></label>
+                <input asp-for="Rodzaj" class="form-control" />
+                <span asp-validation-for="Rodzaj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Producent" class="control-label"></label>
+                <input asp-for="Producent" class="form-control" />
+                <span asp-validation-for="Producent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cena" class="control-label"></label>
+                <input asp-for="Cena" class="form-control" />
+                <span asp-validation-for="Cena" class="text-danger"></span>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
